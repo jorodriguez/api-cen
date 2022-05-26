@@ -1,2 +1,4 @@
-# springboot-postgresql-hibernate-crud-example
-Spring Boot, PostgreSQL, JPA, Hibernate RESTful CRUD API Tutorial - https://youtu.be/eWbGV3LLwVQ
+# Api para operaciones de Centops
+Tecnologías 
+
+Spring Boot, PostgreSQL, JPA, Hibernate  
