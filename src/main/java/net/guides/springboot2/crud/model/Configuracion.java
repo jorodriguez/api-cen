@@ -29,13 +29,6 @@ public class Configuracion extends BaseEntity{
     @Size(max = 2147483647)
     private String linkDescargaAppAndroid;    
     private Boolean sistema;
-    /*@Basic(optional = false)
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaGenero;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaModifico;
-    */
     @Size(max = 2147483647)
     private String configuracionCorreo;
     @Size(max = 2147483647)
@@ -45,13 +38,6 @@ public class Configuracion extends BaseEntity{
     @ManyToOne(fetch = FetchType.EAGER)    
     private CoEmpresa coEmpresa;
     
-    /*@JoinColumn(name = "genero", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)    
-    private Usuario genero;
-    
-    @JoinColumn(name = "modifico", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)    
-    private Usuario modifico;*/
 
     
     public Configuracion() {

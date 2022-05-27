@@ -1,5 +1,8 @@
 package net.guides.springboot2.crud.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -14,6 +17,8 @@ import javax.persistence.TemporalType;
  * @author ihsa
 */
 @MappedSuperclass
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+            property ="id" )
 public abstract class BaseEntity implements Serializable {
     
     @JoinColumn(name = "genero", referencedColumnName = "id")
@@ -34,6 +39,7 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "eliminado")
     protected Boolean eliminado;
 
+    //@JsonBackReference
     public Usuario getGenero() {
         return genero;
     }
@@ -50,6 +56,7 @@ public abstract class BaseEntity implements Serializable {
         this.fechaGenero = fechaGenero;
     }
 
+    //@JsonBackReference
     public Usuario getModifico() {
         return modifico;
     }

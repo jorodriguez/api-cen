@@ -5,6 +5,10 @@
  */
 package net.guides.springboot2.crud.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -26,6 +30,7 @@ import javax.validation.constraints.Size;
  * @author jorodriguez
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property ="id" )
 public class Usuario extends BaseEntity implements Serializable{
 
     @Id
@@ -82,6 +87,7 @@ public class Usuario extends BaseEntity implements Serializable{
     private String correoCopia;
      
     //@JoinColumn(name = "co_empresa", referencedColumnName = "id")
+    //@JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "co_empresa", nullable = false)    
     //@ManyToOne
@@ -90,8 +96,6 @@ public class Usuario extends BaseEntity implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "co_sucursal", referencedColumnName = "id")        
     private CoSucursal coSucursal;
-    
-       
     
     public Usuario() {
     }

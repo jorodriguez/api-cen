@@ -29,7 +29,7 @@ public class UsuarioRepository {// extends BaseRepositoryImpl<Usuario, Long> {
     private EntityManager entityManager;
     
     public List<Usuario> getUsuarios(){
-        Query query = entityManager.createNativeQuery("Select * from usuario where eliminado = false");
+        Query query = entityManager.createNativeQuery("Select * from usuario where eliminado = false",Usuario.class);
         
         return query.getResultList();
         
