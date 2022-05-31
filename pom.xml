@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.guides.springboot2</groupId>
+    <groupId>net.api.centops</groupId>
     <artifactId>api-centops</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>api-centops</name>
-    <description>springboot2-postgresql-jpa-hibernate-crud-example</description>
+    <description>Api para operaciones del centro de operaciones</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
