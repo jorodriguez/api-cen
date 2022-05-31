@@ -24,11 +24,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author jorodriguez
  */
+@Getter
+@Setter
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property ="id" )
 public class Usuario extends BaseEntity implements Serializable{
@@ -100,189 +105,35 @@ public class Usuario extends BaseEntity implements Serializable{
     public Usuario() {
     }
 
-    public Usuario(Integer id) {
-        this.id = id;
-    }
-
-    public Usuario(Integer id, String nombre, String password, Date horaEntrada, Date horaSalida, BigDecimal sueldoMensual, BigDecimal sueldoQuincenal) {
+    @Builder
+    public Usuario(Integer id, String nombre, String correo, String password, Date fechaGenero, Date fechaModifico, boolean eliminado, String token, Boolean permisoGerente, Date horaEntrada, Date horaSalida, Integer minutosGraciaEntrada, String foto, Boolean activo, String motivoBaja, Date fechaBaja, Boolean accesoSistema, BigDecimal sueldoMensual, BigDecimal sueldoQuincenal, Boolean visibleReporte, String alias, String correoCopia, CoEmpresa coEmpresa, CoSucursal coSucursal) {
         this.id = id;
         this.nombre = nombre;
-        this.password = password;
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
-        this.sueldoMensual = sueldoMensual;
-        this.sueldoQuincenal = sueldoQuincenal;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
+        this.fechaGenero = fechaGenero;
+        this.fechaModifico = fechaModifico;
+        this.eliminado = eliminado;
         this.token = token;
-    }
-
-    public Boolean getPermisoGerente() {
-        return permisoGerente;
-    }
-
-    public void setPermisoGerente(Boolean permisoGerente) {
         this.permisoGerente = permisoGerente;
-    }
-
-    public Date getHoraEntrada() {
-        return horaEntrada;
-    }
-
-    public void setHoraEntrada(Date horaEntrada) {
         this.horaEntrada = horaEntrada;
-    }
-
-    public Date getHoraSalida() {
-        return horaSalida;
-    }
-
-    public void setHoraSalida(Date horaSalida) {
         this.horaSalida = horaSalida;
-    }
-
-    public Integer getMinutosGraciaEntrada() {
-        return minutosGraciaEntrada;
-    }
-
-    public void setMinutosGraciaEntrada(Integer minutosGraciaEntrada) {
         this.minutosGraciaEntrada = minutosGraciaEntrada;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
         this.foto = foto;
-    }
-
-    public Boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Boolean activo) {
         this.activo = activo;
-    }
-
-    public String getMotivoBaja() {
-        return motivoBaja;
-    }
-
-    public void setMotivoBaja(String motivoBaja) {
         this.motivoBaja = motivoBaja;
-    }
-
-    public Date getFechaBaja() {
-        return fechaBaja;
-    }
-
-    public void setFechaBaja(Date fechaBaja) {
         this.fechaBaja = fechaBaja;
-    }
-
-    public Boolean getAccesoSistema() {
-        return accesoSistema;
-    }
-
-    public void setAccesoSistema(Boolean accesoSistema) {
         this.accesoSistema = accesoSistema;
-    }
-
-    public BigDecimal getSueldoMensual() {
-        return sueldoMensual;
-    }
-
-    public void setSueldoMensual(BigDecimal sueldoMensual) {
         this.sueldoMensual = sueldoMensual;
-    }
-
-    public BigDecimal getSueldoQuincenal() {
-        return sueldoQuincenal;
-    }
-
-    public void setSueldoQuincenal(BigDecimal sueldoQuincenal) {
         this.sueldoQuincenal = sueldoQuincenal;
-    }
-
-    public Boolean getVisibleReporte() {
-        return visibleReporte;
-    }
-
-    public void setVisibleReporte(Boolean visibleReporte) {
         this.visibleReporte = visibleReporte;
-    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
         this.alias = alias;
-    }
-
-    public String getCorreoCopia() {
-        return correoCopia;
-    }
-
-    public void setCorreoCopia(String correoCopia) {
         this.correoCopia = correoCopia;
-    }
-
-    public CoEmpresa getCoEmpresa() {
-        return coEmpresa;
-    }
-
-    public void setCoEmpresa(CoEmpresa coEmpresa) {
         this.coEmpresa = coEmpresa;
-    }
-
-    public CoSucursal getCoSucursal() {
-        return coSucursal;
-    }
-
-    public void setCoSucursal(CoSucursal coSucursal) {
         this.coSucursal = coSucursal;
     }
 
+       
       
   
     

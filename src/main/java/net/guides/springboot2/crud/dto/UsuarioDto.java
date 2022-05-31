@@ -5,29 +5,38 @@
  */
 package net.guides.springboot2.crud.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.math.BigDecimal;
 import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import net.guides.springboot2.Crud.base.BaseDto;
 
 /**
  *
  * @author jorodriguez
  */
-public class UsuarioDto extends BaseDto{
 
-    private String correo;
-    private String password;
-    private Date fechaGenero;
-    private Date fechaModifico;
+@Getter
+@Setter
+@ToString
+public class UsuarioDto  extends BaseDto{
+
+    private String correo;    
+    private String password;    
     private boolean eliminado;
     private String token;
     private Boolean permisoGerente;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Date horaEntrada;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Date horaSalida;
     private Integer minutosGraciaEntrada;
     private String foto;
     private Boolean activo;
     private String motivoBaja;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date fechaBaja;
     private Boolean accesoSistema;
     private BigDecimal sueldoMensual;
@@ -37,4 +46,5 @@ public class UsuarioDto extends BaseDto{
     private String correoCopia;
     private Integer coEmpresa;
     private Integer coSucursal;           
+
 }

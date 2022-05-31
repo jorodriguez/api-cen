@@ -17,8 +17,7 @@ import javax.persistence.TemporalType;
  * @author ihsa
 */
 @MappedSuperclass
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-            property ="id" )
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property ="id" )
 public abstract class BaseEntity implements Serializable {
     
     @JoinColumn(name = "genero", referencedColumnName = "id")

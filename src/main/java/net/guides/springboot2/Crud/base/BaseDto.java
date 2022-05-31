@@ -1,5 +1,6 @@
 package net.guides.springboot2.Crud.base;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -24,14 +25,15 @@ public abstract class BaseDto implements Serializable {
     private Integer genero;
     
     //@ExcluirJson
-    private Date fechaGenero;    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date fechaGenero;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date fechaModifico;    
     
     
     //@ExcluirJson
     private Integer modifico;
-    
-    private Date fechaModifico;    
-    
+            
     private boolean eliminado;
     
     public BaseDto() {

@@ -5,6 +5,8 @@
  */
 package net.guides.springboot2.crud.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author jorodriguez
  */
 @Entity
-@XmlRootElement
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property ="id" )
 public class CoEmpresa extends BaseEntity{
 
     @Id
