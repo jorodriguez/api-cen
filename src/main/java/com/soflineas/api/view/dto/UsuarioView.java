@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author jorodriguez
  */
-public interface UsuarioView {
+public interface UsuarioView extends BaseView{
     String getId();    
     String getNombre();    
     String getAlias();   
