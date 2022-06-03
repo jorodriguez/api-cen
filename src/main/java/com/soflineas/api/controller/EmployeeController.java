@@ -1,5 +1,6 @@
 package com.soflineas.api.controller;
 
+
 import java.util.List;
 import javax.validation.Valid;
 import com.soflineas.api.dto.UsuarioDto;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.soflineas.api.model.Usuario;
 
 // https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 /*
@@ -44,12 +47,12 @@ public class EmployeeController {
 	         
 	
         @GetMapping        	
-	public ResponseEntity<List<UsuarioView>> getAllusuarios(@RequestParam(value = "coEmpresa") int coEmpresa) throws ResourceNotFoundException {                        
+	public ResponseEntity<List<Usuario>> getAllusuarios(@RequestParam(value = "coEmpresa") int coEmpresa) throws ResourceNotFoundException {                        
                 System.out.println("@getAllEmployees ");
                 try{
                     System.out.println("@Param "+coEmpresa);
                     
-                    List<UsuarioView> lista = usuarioService.findByEliminado(coEmpresa);
+                    List<Usuario> lista = usuarioService.findByEliminado(coEmpresa);
                                    
                     return  new ResponseEntity<>(lista, HttpStatus.OK);
                 
@@ -59,22 +62,22 @@ public class EmployeeController {
                 return ResponseEntity.badRequest().body(null);
 	}
 
-	@GetMapping("/{id}")        
+	/*@GetMapping("/{id}")        
 	public ResponseEntity<UsuarioView> getEmployeeById(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
 		
                 final UsuarioView usuarioView = usuarioService.findById(id);		
                                        
 		return ResponseEntity.ok().body(usuarioView);
-	}
+	}*/
 
-	@PostMapping
+/*	@PostMapping
 	public void createEmployee(@Valid @RequestBody UsuarioDto usuarioDto) {
             
                  System.out.println(" usuaro dto "+usuarioDto.toString());
 		
                 usuarioService.save(usuarioDto);
 	}
-
+*/
 /*	@PutMapping("/{id}")
 	public ResponseEntity updateEmployee(@PathVariable(value = "id") Long employeeId,
 			@Valid @RequestBody Usuario employeeDetails) throws ResourceNotFoundException {

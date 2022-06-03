@@ -7,6 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+// principal https://github.com/bezkoder/spring-boot-data-jpa-mysql
+//https://www.bezkoder.com/spring-boot-jwt-authentication/
+
+//otro ejemplo : https://github.com/bezkoder/spring-boot-spring-security-jwt-authentication.git
+
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableJpaRepositories(repositoryBaseClass = BaseRepositoryImpl.class)

@@ -9,6 +9,8 @@ package com.soflineas.api.repository;
 import com.soflineas.api.base.AbstractFacade;
 import com.soflineas.api.model.Usuario;
 import com.soflineas.api.view.dto.UsuarioView;
+import java.util.List;
+import javax.validation.constraints.Email;
 import org.springframework.stereotype.Repository;
 /**
  *
@@ -16,6 +18,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //public class UsuarioCrudRepository extends AbstractFacade<Usuario> {
-public class UsuarioRepository extends AbstractFacade<Usuario, Long, UsuarioView>{  
+public class UsuarioRepository extends AbstractFacade<Usuario, Long>{  
+    
+    public List<Usuario> findAll(){
+        return getEntityManager().createNativeQuery("Select * from usuario where eliminado = false").getResultList();
+    }
        
 }

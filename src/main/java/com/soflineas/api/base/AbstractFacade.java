@@ -20,11 +20,11 @@ import org.springframework.data.repository.CrudRepository;
  * @param <T> Clase de la entidad de JPA a administrar.
  * implements BaseCrudRepository<T,ID,V>
  */
-public abstract class AbstractFacade<T,ID,V extends BaseView> {
+public abstract class AbstractFacade<T,ID> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractFacade.class.getName());
 
-    @PersistenceContext
+    @PersistenceContext()
     private EntityManager em;
 
     protected enum CrudActions {
@@ -65,16 +65,17 @@ public abstract class AbstractFacade<T,ID,V extends BaseView> {
         List<T> ent = null;
         try {          
             
-            //ent = getEntityManager().createNativeQuery("Select * from "+entityClass.getName()+" where eliminado = false", entityClass).getResultList();
-            return findByEliminado(false);
-            
+            ent = getEntityManager().createNativeQuery("Select * from "+entityClass.getName()+" where eliminado = false", entityClass).getResultList();
+            //return findByEliminado(false);
+            return ent
+;            
         } catch (Exception ex) {
             LOGGER.error(null, ex);
         }
 
         return ent;
-    }*/
-
+    }
+*/
     public T create(T entity, Integer idUsuario) {
 
         completarAtributosBase(entity, CrudActions.GUARDAR);

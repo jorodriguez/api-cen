@@ -7,15 +7,17 @@ package com.soflineas.api.base;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 /**
  *
  * @author jorodriguez
  */
+@NoRepositoryBean
 public interface BaseCrudRepository<T,ID,V> extends CrudRepository<T,ID>{
           
    List<V> findByEliminado(Integer coEmpresa);       
-   
+
    //V findById(ID id);       
     
 }

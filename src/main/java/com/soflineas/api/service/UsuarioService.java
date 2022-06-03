@@ -7,6 +7,7 @@ package com.soflineas.api.service;
 
 
 
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -20,6 +21,7 @@ import com.soflineas.api.view.dto.UsuarioView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.soflineas.api.repository.UsuarioCrudRepository;
+import com.soflineas.api.repository.UsuarioRepository;
 
 /**
  *
@@ -30,13 +32,13 @@ import com.soflineas.api.repository.UsuarioCrudRepository;
 public class UsuarioService  {
     
     @Autowired
-    private UsuarioCrudRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
     
-    public List<UsuarioView> findByEliminado(Integer coEmpresa){
+    public List<Usuario> findByEliminado(Integer coEmpresa){
         //return usuarioRepository.findByEliminadoAndCoEmpresa(eliminado,coEmpresa);
-        return usuarioRepository.findByCoEmpresa(coEmpresa);
+        return usuarioRepository.findAll();
     }
-        
+        /*
     public UsuarioView findById(Long id){
         
         return usuarioRepository.findId(id);
@@ -60,7 +62,7 @@ public class UsuarioService  {
         
         usuarioRepository.save(usuario);
         
-    }
+    }*/
     
     
 }
